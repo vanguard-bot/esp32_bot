@@ -1,5 +1,5 @@
 import network
-from config.config import wifi
+import config
 
 
 def do_connect():
@@ -8,7 +8,7 @@ def do_connect():
     wlan.active(True)
     if not wlan.isconnected():
         print('connecting to network...')
-        wlan.connect(wifi['essid'], wifi['passwd'])
+        wlan.connect(config.WIFI_SSID, config.WIFI_PASS)
         while not wlan.isconnected():
             pass
     print('network config:', wlan.ifconfig()) 
